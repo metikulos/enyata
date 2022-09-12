@@ -6,7 +6,7 @@ exports.add = async (req, res) => {
     try {
         const city = req.body.city
         const gdata = await WeatherService.getGeoData(city)
-        const wdata = await WeatherService.getWeatherData(gdata[0].lat,gdata[0].lon)
+        const wdata = await WeatherService.getWeatherData(gdata[0].lat,gdata[0].lon)\
         if(wdata){
             const data = {
                 client_id: req.body.client_id,
@@ -14,7 +14,7 @@ exports.add = async (req, res) => {
                 city: req.body.city, 
                 country: req.body.country, 
                 date: req.body.date,
-                weather_report: wdata
+                weather_report: JSON.stringify(wdata ?? "")
             }
             const incident = await Incident.create(data)
 

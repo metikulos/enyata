@@ -17,9 +17,6 @@ module.exports = (sequelize, Sequelize) => {
         },
         weather_report:{
             type: Sequelize.TEXT,
-            set(val) {
-                this.setDataValue("weather_report", JSON.stringify(val ?? ""));
-            },
         }
     });
     return Incident;
