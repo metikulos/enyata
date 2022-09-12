@@ -14,7 +14,7 @@ exports.add = async (req, res) => {
                 city: req.body.city, 
                 country: req.body.country, 
                 date: req.body.date,
-                weather_report: JSON.stringify(wdata ?? "")
+                weather_report: JSON.stringify(wdata)
             }
             const incident = await Incident.create(data)
 
